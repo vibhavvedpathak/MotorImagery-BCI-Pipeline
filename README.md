@@ -1,79 +1,100 @@
 # MotorImagery-BCI-Pipeline
-Project Context
+<h1>Project Context</h1>
 
-This repository was developed as part of my university course on Brain–Computer Interfaces (BCI). The course explores how brain signals can be recorded, interpreted, and translated into meaningful commands. One of the central topics in BCI research is motor imagery (MI)—imagining a movement without physically performing it. Despite the lack of real motion, MI produces recognizable EEG patterns, especially over the sensorimotor cortex.
+<p>
+This repository was developed as part of my university course on 
+<strong>Brain–Computer Interfaces (BCI)</strong>. 
+The course explores how brain signals can be recorded, interpreted, 
+and translated into meaningful commands. One of the central topics in BCI 
+research is <em>motor imagery (MI)</em>—imagining a movement without physically
+performing it. Even without real motion, MI produces recognizable EEG patterns, 
+particularly over the sensorimotor cortex.
+</p>
 
-Purpose of the Project
+<hr/>
 
-The assignment required implementing a complete EEG analysis and classification pipeline on real motor imagery data. The goal was to gain hands-on experience with:
+<h2>Purpose of the Project</h2>
 
-Loading and inspecting raw EEG recordings
+<p>
+The assignment required implementing a 
+<strong>complete EEG analysis and classification pipeline</strong> 
+on real motor imagery data. The goal was to gain practical experience in:
+</p>
 
-Preprocessing (filtering, re-referencing, and ICA)
+<ul>
+  <li>Loading and inspecting raw EEG recordings</li>
+  <li>Filtering and re-referencing signals</li>
+  <li>Running ICA and removing artifacts</li>
+  <li>Identifying events and segmenting trials</li>
+  <li>Extracting motor-imagery-related features</li>
+  <li>Training and evaluating a classifier</li>
+</ul>
 
-Identifying event markers and segmenting trials
+<p>
+This project bridges theoretical BCI concepts with hands-on analysis using
+real EEG data.
+</p>
 
-Extracting features relevant to motor imagery
+<hr/>
 
-Training and evaluating a classifier
+<h2>Why Subject S008?</h2>
 
-This project transitions theoretical BCI concepts into practical skills using real data.
+<p>
+This project uses <strong>Subject S008</strong> from the 
+<em>EEG Motor Movement/Imagery Dataset</em> (Schalk et al., 2022), 
+published on OpenNeuro. The dataset was selected because it offers:
+</p>
 
-Why Subject S008?
+<ul>
+  <li>High-quality EEG with a 64-channel extended 10–10 cap</li>
+  <li>Clear event markers (<code>T1</code> = left hand, <code>T2</code> = right hand)</li>
+  <li>A standardized 160 Hz sampling rate</li>
+  <li>A widely used structure in motor imagery BCI research</li>
+</ul>
 
-This project uses Subject S008 from the EEG Motor Movement/Imagery Dataset (Schalk et al., 2022), hosted on OpenNeuro.
-This dataset was chosen because it provides:
+<p>
+Working with a single subject enabled a focused and deeply detailed analysis, 
+ideal for learning core BCI processing techniques.
+</p>
 
-High-quality EEG recorded with a 64-channel extended 10–10 cap
+<hr/>
 
-Clear labels for motor imagery conditions (T1 = left hand, T2 = right hand)
+<h2>Methodological Approach</h2>
 
-A standardized recording environment (160 Hz sampling rate)
+<p>
+All analysis was performed using <strong>MATLAB 2019a</strong> with 
+<strong>EEGLAB</strong> and <strong>BCILAB</strong>, following the step-by-step 
+GUI workflow shown in the course instruction files (similar to the Oddball Task example).
+No custom scripting was needed; instead, the emphasis was on understanding the logic 
+behind each preprocessing and classification step.
+</p>
 
-A well-established structure widely used in BCI research
+<h3>Preprocessing steps included:</h3>
+<ul>
+  <li>Filtering the raw EEG signals</li>
+  <li>Applying average re-referencing</li>
+  <li>Removing noisy channels</li>
+  <li>Performing ICA and rejecting artifact components with ICLabel</li>
+  <li>Epoching around motor imagery events (<code>T1</code>, <code>T2</code>)</li>
+</ul>
 
-Working with a single subject allowed for a focused, detailed analysis that is ideal for learning core BCI processing techniques.
+<h3>Analysis and classification steps included:</h3>
+<ul>
+  <li>Extracting bandpower or CSP-based features</li>
+  <li>Training a classifier using BCILAB</li>
+  <li>Performing cross-validation</li>
+  <li>Inspecting spatial patterns such as C3/C4 activations</li>
+</ul>
 
-Methodological Approach
+<hr/>
 
-All analysis steps were performed in MATLAB 2019a, following the GUI-based workflow demonstrated in the course materials (similar to the Oddball Task example). No custom scripting was required; instead, the project emphasizes understanding the preprocessing and classification procedures via EEGLAB and BCILAB.
+<h2>Contribution to the BCI Report</h2>
 
-Key steps included:
+<p>
+This project forms an essential part of my <strong>BCI course report</strong>. 
+It demonstrates my understanding of EEG preprocessing, sensorimotor rhythms, 
+and the practical steps required to classify motor imagery using machine-learning techniques. 
+The repository includes processed datasets, visualizations, classification results, 
+and methodological notes that support the written report.
+</p>
 
-Preprocessing
-
-Filtering the EEG signals
-
-Applying average re-referencing
-
-Removing noisy channels
-
-Running ICA and rejecting artifact components using ICLabel
-
-Epoching around motor imagery events (T1, T2)
-
-Analysis and Classification
-
-Extracting features such as bandpower or CSP components
-
-Using BCILAB to train a classifier
-
-Running cross-validation to evaluate classification performance
-
-Interpreting spatial patterns (e.g., C3/C4 activation differences)
-
-These steps form a complete BCI pipeline—from raw EEG to classification results.
-
-Contribution to the BCI Report
-
-This project directly supports my BCI course report, demonstrating my ability to:
-
-Apply EEG preprocessing techniques
-
-Understand sensorimotor dynamics in motor imagery
-
-Build and evaluate machine-learning models for EEG
-
-Relate preprocessing choices to classification performance
-
-The repository includes all relevant datasets (processed versions), figures, and methodological notes required for reproducibility and documentation.
